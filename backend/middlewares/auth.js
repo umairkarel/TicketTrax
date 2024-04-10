@@ -1,6 +1,6 @@
 import ErrorHandler from "../utils/error-handler.js";
 import { ErrorMessages } from "../constants/server-errors.js";
-// import { User } from "../models/user.model.js";
+import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
 /**
@@ -12,15 +12,15 @@ export const isAuthenticatedUser = async (req, res, next) => {
   if (!token)
     return next(new ErrorHandler(`${ErrorMessages.LoginRequired}`, 401));
 
-  // const decodedToken = jwt.verify(token, process.env.JWT_SALT);
+  const decodedToken = jwt.verify(token, process.env.JWT_SALT);
 
-  // // Check if token expried and return proper message
+  // TODO: Check if token expried and return proper message
 
-  // req.user = await User.findById(decodedToken.id);
+  req.user = await User.findById(decodedToken.id);
 
-  // if (!req.user) {
-  //   return next(new ErrorHandler(`${ErrorMessages.Unauthorised}`, 401));
-  // }
+  if (!req.user) {
+    return next(new ErrorHandler(`${ErrorMessages.Unauthorised}`, 401));
+  }
 
   next();
 };
