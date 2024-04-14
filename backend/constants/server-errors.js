@@ -1,3 +1,7 @@
+export const AppErrorMessages = {
+  TicketNotFound: "Ticket not found!",
+};
+
 export const ErrorMessages = {
   ServerUnreachableError: "Server is not able to get requested data.",
   PleaseTryAgain: "Please try again!",

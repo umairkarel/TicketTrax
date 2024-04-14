@@ -1,4 +1,4 @@
-import * as UserService from "../services/user.service.js";
+import * as UserService from "../services/user.services.js";
 import ErrorHandler from "../utils/error-handler.js";
 import { ErrorMessages, HTTP_STATUS_CODE } from "../constants/server-errors.js";
 import { ServerMessages } from "../constants/server-messages.js";

@@ -7,6 +7,8 @@ import { ErrorMiddleware } from "./middlewares/error.js";
 import ErrorHandler from "./utils/error-handler.js";
 import { ErrorMessages, HTTP_STATUS_CODE } from "./constants/server-errors.js";
 import userRouter from "./routes/user.routes.js";
+import ticketRouter from "./routes/ticket.routes.js";
+
 
 // Set .env file path
 config({
@@ -27,6 +29,7 @@ app.use(
 
 // All your Router's goes here
 app.use("/api/users", userRouter);
+app.use("/api/tickets", ticketRouter);
 app.all("*", () => {
   // not found route
   // app.all represents GET, POST, PUT, PATCH, etc.
