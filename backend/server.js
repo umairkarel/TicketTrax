@@ -10,10 +10,11 @@ import {
 await connectDB();
 
 // Listening server
+/* eslint-disable no-undef */
 app.listen(process.env.PORT || DEFAULT_SERVER_PORT, () => {
   logger.info(
     `${process.env.NODE_ENV || DEFAULT_SERVER_ENV} server is running on port ${
       process.env.PORT || DEFAULT_SERVER_PORT
-    }.`
+    }.`,
   );
 });

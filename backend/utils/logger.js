@@ -23,6 +23,7 @@ const customLoggerFormat = format.combine(
 
 let logger;
 
+/* eslint-disable no-undef */
 logger = createLogger({
   format: customLoggerFormat,
   transports: [

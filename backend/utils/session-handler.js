@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+/* eslint-disable no-undef */
 export const createSession = (req, user) => {
   // Generate JWT (Synchronous)
   const userJwt = jwt.sign(
@@ -9,7 +10,7 @@ export const createSession = (req, user) => {
     process.env.JWT_SALT, // secretOrPrivateKey
     {
       expiresIn: process.env.JWT_EXPIRY,
-    }
+    },
     // [options, callback]
   );
 

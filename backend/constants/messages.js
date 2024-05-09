@@ -1,3 +1,7 @@
+export const AppServerMessages = {
+  TicketBought: "Congrations, you have bought a ticket!",
+};
+
 export const ServerMessages = {
   UserRegistered: "User registered Successfully!",
   UserUpdated: "User updated successfully!",
