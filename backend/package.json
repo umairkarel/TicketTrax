@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix --ext js",
     "start:dev": "pm2-dev start server.js",
     "start": "pm2 start server.js --name ticketTrax",
+    "start:node": "node server.js",
     "logs": "pm2 logs ticketTrax",
     "clearLogs": "pm2 flush ticketTrax",
     "stop": "pm2 stop ticketTrax"
