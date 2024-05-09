@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
         delete ret._id;
       },
     },
-  }
+  },
 );
 
 userSchema.pre("save", async function (next) {

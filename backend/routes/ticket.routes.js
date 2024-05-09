@@ -5,6 +5,7 @@ import {
   getTicket,
   getTickets,
   updateTicket,
+  buyTicket,
 } from "../controllers/ticket.controllers.js";
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router
 router
   .route("/:id")
   .get(isAuthenticatedUser, getTicket)
-  .put(isAuthenticatedUser, updateTicket);
+  .put(isAuthenticatedUser, updateTicket)
+  .post(isAuthenticatedUser, buyTicket);
 
 export default router;

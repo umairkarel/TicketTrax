@@ -5,10 +5,9 @@ import cookieSession from "cookie-session";
 import { config } from "dotenv";
 import { ErrorMiddleware } from "./middlewares/error.js";
 import ErrorHandler from "./utils/error-handler.js";
-import { ErrorMessages, HTTP_STATUS_CODE } from "./constants/server-errors.js";
+import { ErrorMessages, HTTP_STATUS_CODE } from "./constants/errors.js";
 import userRouter from "./routes/user.routes.js";
 import ticketRouter from "./routes/ticket.routes.js";
-
 
 // Set .env file path
 config({
@@ -20,11 +19,12 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+/* eslint-disable no-undef */
 app.use(
   cookieSession({
     signed: false,
     secure: process.env.NODE_ENV !== "test",
-  })
+  }),
 );
 
 // All your Router's goes here
@@ -35,7 +35,7 @@ app.all("*", () => {
   // app.all represents GET, POST, PUT, PATCH, etc.
   throw new ErrorHandler(
     ErrorMessages.ResourceNotFound,
-    HTTP_STATUS_CODE.NotFound
+    HTTP_STATUS_CODE.NotFound,
   );
 });
 

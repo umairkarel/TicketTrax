@@ -1,5 +1,5 @@
 import ErrorHandler from "../utils/error-handler.js";
-import { ErrorMessages } from "../constants/server-errors.js";
+import { ErrorMessages } from "../constants/errors.js";
 import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
@@ -12,9 +12,14 @@ export const isAuthenticatedUser = async (req, res, next) => {
   if (!token)
     return next(new ErrorHandler(`${ErrorMessages.LoginRequired}`, 401));
 
+  /* eslint-disable no-undef */
   const decodedToken = jwt.verify(token, process.env.JWT_SALT);
 
-  // TODO: Check if token expried and return proper message
+  // Check if token has expired
+  const currentTime = Math.floor(Date.now() / 1000); // Get current time in seconds
+  if (decodedToken.exp < currentTime) {
+    return next(new ErrorHandler(`${ErrorMessages.TokenExpired}`, 401));
+  }
 
   req.user = await User.findById(decodedToken.id);
 

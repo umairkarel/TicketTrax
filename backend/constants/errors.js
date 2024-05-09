@@ -1,5 +1,6 @@
 export const AppErrorMessages = {
   TicketNotFound: "Ticket not found!",
+  TicketAlreadySold: "Sorry, the Ticket is already sold!",
 };
 
 export const ErrorMessages = {
@@ -15,6 +16,7 @@ export const ErrorMessages = {
   FieldsRequired: "Please enter all fields.",
   DataIncomplete: "Data is incomplete!",
   ResourceNotFound: "Requested resources not found!",
+  TokenExpired: "Token has expired!",
 };
 
 export const HTTP_STATUS_CODE = {

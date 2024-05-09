@@ -39,7 +39,7 @@ const ticketSchema = new mongoose.Schema(
         delete ret._id;
       },
     },
-  }
+  },
 );
 
 export const Ticket = mongoose.model("Ticket", ticketSchema);

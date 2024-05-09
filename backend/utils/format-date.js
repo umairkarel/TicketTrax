@@ -13,7 +13,7 @@ export const formatDate = (date, options) => {
   };
   const formattedDate = new Date(date).toLocaleDateString(
     "en-US",
-    options || defaultOptions
+    options || defaultOptions,
   );
   return formattedDate;
 };
