@@ -8,7 +8,6 @@ const ticketSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
     },
     price: {
       type: Number,
@@ -33,6 +32,14 @@ const ticketSchema = new mongoose.Schema(
   },
   { timestamps: true },
   {
+    /**
+     * Transforms the given document into a plain object and removes the _id field,
+     * replacing it with an id field.
+     *
+     * @param {Object} doc - The document to be transformed.
+     * @param {Object} ret - The plain object representation of the document.
+     * @return {Object} The transformed plain object without the _id field.
+     */
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
