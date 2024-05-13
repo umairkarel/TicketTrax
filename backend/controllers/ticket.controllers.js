@@ -47,12 +47,13 @@ export const getTicket = async (req, res) => {
  * @returns {Promise<void>} - A Promise that resolves once the operation is complete.
  */
 export const createTicket = async (req, res) => {
-  const { title, price } = req.body;
+  const { title, description, price } = req.body;
 
   const ticket = await TicketService.createTicket({
     title,
+    description: description || "",
     price,
-    userId: req.currentUser?.id,
+    listedBy: req.currentUser?.id,
   });
 
   res.status(HTTP_STATUS_CODE.Created).json({
